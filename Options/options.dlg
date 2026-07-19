@@ -1,0 +1,258 @@
+-- SPDX-License-Identifier: MIT
+--[[
+MIT License
+
+Copyright (c) 2026 gcask <53709079+gcask@users.noreply.github.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.]]
+
+local leftMargin = 56
+local width = 850
+
+-- Skins
+
+local EditBoxSkin = {
+	["params"] = {
+		["name"] = "editBoxSkin_login",
+	}
+}
+
+local CheckBoxSkin = {
+	["params"] = {
+		["name"] = "checkBoxSkin_options",
+	}
+}
+
+local TitleSkin = {
+	["params"] = {
+		["name"] = "staticOptionsTitleSkin",
+	},
+	["states"] = {
+		["released"] = {
+			[1] = {
+				["text"] = {
+					["horzAlign"] = {
+						["type"] = "min"
+					}
+				}
+			}
+		}
+	}
+}
+
+local LabelSkin = {
+	["params"] = {
+		["name"] = "staticOptionsCaptionSkin",
+	}
+}
+
+local HelpSkin = {
+	["params"] = {
+		["name"] = "staticSkin2",
+	},
+	["states"] = {
+		["released"] = {
+			[1] = {
+				["text"] = {
+					["fontSize"] = 10,
+					["horzAlign"] = {
+						["type"] = "min"
+					}
+				}
+			}
+		}
+	}
+}
+
+local ComboListSkin = {
+	["params"] = {
+		["name"] = "comboListSkin_options",
+	}
+}
+
+-- Content
+
+dialog = {
+	["children"] = {
+			["containerPlugin"] = {
+				["children"] =  {
+
+					----------------------------------------
+					-- Title
+					----------------------------------------
+					["titleLabel"] = {
+						["params"] = {
+							["enabled"] = true,
+							["bounds"] = {
+								["x"] = leftMargin,
+								["y"] = 30,
+								["w"] = width,
+								["h"] = 24,
+							},
+							["visible"] = true,
+							["tooltip"] = "",
+							["zindex"] = 0,
+							["text"] = "$DCS_ROUTE_CONVERTER",
+						},
+						["skin"] = TitleSkin,
+						["type"] = "Static",
+					},
+
+					-----------------------------------------------
+					-- SRS Overlay
+					-----------------------------------------------
+				
+					["routeConverterTheatresComboList"] = {
+						["params"] = {
+							["bounds"] = {
+								["x"] = leftMargin,
+								["y"] = 90,
+								["w"] = width,
+								["h"] = 20,
+							},
+							["enabled"] = true,
+							["tooltip"] = "Select Theatre (map)",
+							["visible"] = true,
+							["zindex"] = 0,
+							["tabOrder"] = 0,
+						},
+						["skin"] = ComboListSkin,
+					    ["type"] = "ComboList",
+					},
+
+					["routeConverterRoutesComboList"] = {
+						["params"] = {
+							["bounds"] = {
+								["x"] = leftMargin,
+								["y"] = 120,
+								["w"] = width,
+								["h"] = 20,
+							},
+							["enabled"] = true,
+							["tooltip"] = "Select route preset to convert",
+							["visible"] = true,
+							["zindex"] = 0,
+						},
+						["skin"] = ComboListSkin,
+						["type"] = "ComboList",
+					},
+
+					["routeConverterFormatsComboList"] = {
+						["params"] = {
+							["bounds"] = {
+								["x"] = leftMargin,
+								["y"] = 170,
+								["w"] = width,
+								["h"] = 20,
+							},
+							["enabled"] = true,
+							["text"] = "Hornet",
+							["tooltip"] = "DTC format",
+							["visible"] = true,
+							["zindex"] = 0,
+						},
+						["skin"] = ComboListSkin,
+						["type"] = "ComboList",
+					},
+
+                    ["routeConverterConvertButton"] = {
+                        ["params"] = {
+                            ["bounds"] = {
+                            ["x"] = leftMargin,
+                            ["y"] = 200,
+                            ["w"] = width,
+                            ["h"] = 40,
+                            },
+                            ["enabled"] = false,
+                            ["tabOrder"] = 0,
+                            ["text"] = "Convert",
+                            ["tooltip"] = "",
+                            ["visible"] = true,
+                            ["zindex"] = 4,
+                        },
+                        ["skin"] = {
+                            ["params"] = {
+                                ["name"] = "buttonSkinGreenNew2",
+                            },
+                        },
+                        ["type"] = "Button",
+                    },
+
+                    ["routeConverterConvertStatus"] = {
+						["params"] = {
+							["bounds"] = {
+								["x"] = leftMargin,
+								["y"] = 220,
+								["w"] = width,
+								["h"] = 90,
+							},
+							["enabled"] = true,
+							["text"] = "",
+							["tooltip"] = "",
+							["visible"] = true,
+							["zindex"] = 0,
+						},
+						["skin"] = HelpSkin,
+						["type"] = "Static",
+					},
+					-----------------------------------------------
+				},
+			["type"] = "Panel",
+			["skin"] = {
+				["params"] = {
+					["name"] = "panelSkin",
+				},
+			},
+			["params"] = {
+				["enabled"] = true,
+				["bounds"] = {
+					["x"] = 0,
+					["y"] = 0,
+					["w"] = 974,
+					["h"] = 600,
+				},
+				["visible"] = true,
+				["tooltip"] = "",
+				["zindex"] = 2,
+				["text"] = "",
+			},
+		},
+	},
+	["type"] = "Window",
+	["skin"] = {
+		["params"] = {
+			["name"] = "windowSkin",
+		},
+	},
+	["params"] = {
+		["bounds"] = {
+			["h"] = 851,
+			["w"] = 1135,
+			["x"] = 0,
+			["y"] = 0,
+		},
+		["draggable"] = true,
+		["enabled"] =  true,
+		["hasCursor"] =  true,
+		["lockFlow"] = false,
+		["modal"] = false,
+		["text"] = "dialog",
+		["zOrder"] = 1,
+	},
+}
