@@ -3,7 +3,7 @@ Converts between RouteTool and DTC formats.
 
 ## Install
 
-Download the [latest release](/gcask/DCS-Route-Converter/releases/latest), extract it in `Saved Games/DCS/`.
+Download the [latest release](../../releases/latest), extract it in `Saved Games/DCS/`.
 
 ## Usage
 
